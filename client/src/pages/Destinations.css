@@ -1,0 +1,133 @@
+.destinations-page {
+  background-color: #020617;
+  padding: 100px 24px;
+  min-height: 100vh;
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.dest-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.dest-subtitle {
+  color: #fbbf24 !important;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 800;
+  display: block;
+}
+
+.dest-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  margin-top: 15px;
+  letter-spacing: -0.02em;
+}
+
+.dest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 35px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.dest-card {
+  position: relative;
+  height: 600px;
+  border-radius: 30px;
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+  background: #1e293b;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.dest-image-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.dest-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dest-card:hover .dest-main-img {
+  transform: scale(1.1);
+}
+
+.dest-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  /* Stronger gradient to ensure white text is ALWAYS visible */
+  background: linear-gradient(
+    to top,
+    rgba(2, 6, 23, 1) 0%,
+    rgba(2, 6, 23, 0.5) 40%,
+    transparent 100%
+  );
+  z-index: 2;
+}
+
+.dest-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 50px;
+  z-index: 10; /* Ensures text is on top of gradient */
+}
+
+.dest-tag {
+  color: #fbbf24;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.dest-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: #ffffff !important; /* Force visibility */
+  margin: 0;
+  line-height: 1;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.dest-footer-info {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+}
+
+.dest-count {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dest-btn {
+  color: #fbbf24;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .dest-grid { grid-template-columns: 1fr; }
+  .dest-card { height: 450px; }
+  .dest-card-title { font-size: 2.2rem; }
+  .dest-card-content { padding: 30px; }
+}

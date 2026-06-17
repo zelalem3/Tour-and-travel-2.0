@@ -1,0 +1,44 @@
+@reference "../index.css";
+
+@layer components {
+  .why-card {
+    @apply relative p-8 md:p-10 bg-white border border-gray-100 rounded-3xl transition-all duration-500 ease-out;
+    box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.05);
+  }
+
+  .why-card:hover {
+    @apply -translate-y-3;
+    box-shadow: 0 20px 40px -15px rgba(202, 138, 4, 0.15); 
+    border-color: #fde047;
+  }
+
+  .icon-wrapper {
+    @apply w-16 h-16 mb-8 flex items-center justify-center rounded-2xl bg-yellow-50 
+           transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3;
+  }
+
+
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+}
+
+.why-card {
+  @apply relative p-8 md:p-10 bg-white border border-gray-100 rounded-3xl transition-all duration-500 ease-out;
+  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.05);
+}
+
+.why-card:hover {
+  @apply -translate-y-3;
+  box-shadow: 0 20px 40px -15px rgba(202, 138, 4, 0.15);
+  border-color: #fde047;
+}

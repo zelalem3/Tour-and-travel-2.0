@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+body {
+  background: rgb(2, 0, 36);
+  background: radial-gradient(
+    circle,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(226, 225, 230, 1) 84%,
+    rgba(255, 255, 255, 1) 100%,
+    rgba(0, 212, 255, 1) 100%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  margin: 50px auto;
+  height: 100%;
+}
+
+.card__one {
+}
+
+/* Force the grid to behave if Tailwind classes are struggling */
+.tours-grid-container {
+  display: grid !important;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .tours-grid-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .tours-grid-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

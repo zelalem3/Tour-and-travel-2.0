@@ -1,0 +1,97 @@
+/* --- BASE NAVBAR --- */
+.custom-nav {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+  padding: 25px 0;
+}
+
+/* SCROLLED STATE */
+.nav-scrolled {
+  background: rgba(2, 6, 23, 0.9) !important; /* Deep Navy/Black */
+  backdrop-filter: blur(12px); /* Glassmorphism */
+  -webkit-backdrop-filter: blur(12px);
+  padding: 12px 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* --- LOGO --- */
+.nav-logo {
+  height: 45px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.05);
+}
+
+/* --- NAV LINKS --- */
+.nav-item-link {
+  color: #e2e8f0 !important; /* Light slate */
+  font-size: 0.7rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin: 0 15px;
+  position: relative;
+  transition: color 0.3s ease !important;
+}
+
+.nav-item-link:hover {
+  color: #fbbf24 !important; /* Gold */
+}
+
+/* Hover line effect */
+.nav-item-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 50%;
+  background: #fbbf24;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-item-link:hover::after {
+  width: 70%;
+}
+
+/* --- CONTACT BUTTON --- */
+.button-27 {
+  background-color: transparent !important;
+  border: 1px solid rgba(251, 191, 36, 0.6) !important;
+  color: #fbbf24 !important;
+  padding: 10px 24px !important;
+  border-radius: 4px !important;
+  font-size: 0.7rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.2em !important;
+  transition: all 0.3s ease !important;
+}
+
+.button-27:hover {
+  background-color: #fbbf24 !important;
+  color: #020617 !important;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+  transform: translateY(-2px);
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: #0f172a; /* Solid background for mobile menu */
+    margin-top: 15px;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+  }
+
+  .nav-item-link {
+    margin: 12px 0;
+    text-align: center;
+    font-size: 0.85rem !important;
+  }
+}

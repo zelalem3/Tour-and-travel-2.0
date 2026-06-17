@@ -1,0 +1,15 @@
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+
+# Disallow private or administrative routes
+Disallow: /admin/
+Disallow: /studio/
+Disallow: /config/
+
+# Hostname
+Host: https://travelethiopia.com
+
+# Link to your sitemap (Crucial for Google)
+Sitemap: https://travelethiopia.com/sitemap.xml

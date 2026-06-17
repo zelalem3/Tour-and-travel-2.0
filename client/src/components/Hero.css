@@ -1,0 +1,249 @@
+/* --- 1. CORE LAYOUT & RESET --- */
+.hero-viewport {
+  position: relative;
+  width: 100%;
+  height: 100vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #020617;
+  /* Ensure a clean sans-serif font is inherited */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* --- 2. BACKGROUND & VISUAL EFFECTS --- */
+.hero-background-container {
+  position: absolute;
+  inset: -10%; 
+  z-index: 1;
+}
+
+.hero-image-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.4) contrast(1.1) saturate(1.2);
+  animation: breathingEffect 35s ease-in-out infinite alternate;
+}
+
+@keyframes breathingEffect {
+  0% { transform: scale(1.1) translateX(0); }
+  100% { transform: scale(1) translateX(-2%); }
+}
+
+.overlay-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(2, 6, 23, 0.5) 60%, #020617 100%);
+  z-index: 2;
+}
+
+.overlay-texture-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(251, 191, 36, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.3;
+  z-index: 3;
+}
+
+/* --- 3. TYPOGRAPHY --- */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 0 24px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.hero-subtitle {
+  color: #fbbf24;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 0.85rem;
+  margin-bottom: 25px;
+  display: block;
+  letter-spacing: 0.5em;
+}
+
+.hero-title {
+  color: white;
+  /* Clamp makes font fluid: Min 3rem, Scalable 8vw, Max 6.5rem */
+  font-size: clamp(3rem, 8vw, 6.5rem) !important;
+  font-weight: 900;
+  line-height: 0.9;
+  margin-bottom: 30px;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.highlight { 
+  color: #fbbf24;
+  font-style: italic;
+  font-family: serif;
+}
+
+.outline-text {
+  /* Fix: slightly thicker stroke for better visibility */
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.6);
+  color: transparent;
+}
+
+.hero-text {
+  color: #94a3b8;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  max-width: 600px;
+  margin: 0 auto 50px auto;
+  line-height: 1.7;
+}
+
+/* --- 4. THE PREMIUM BUTTON (FIXED) --- */
+.hero-btn-premium {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 20px 42px;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); 
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  border-radius: 100px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  
+  /* CRITICAL FIXES */
+  overflow: hidden; 
+  isolation: isolate; 
+}
+
+.btn-text, .btn-icon-wrapper {
+  position: relative;
+  z-index: 2; /* Sits above the golden fill */
+}
+
+.btn-icon-wrapper {
+  margin-left: 15px;
+  width: 30px;
+  height: 30px;
+  background: rgba(251, 191, 36, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.4s ease;
+}
+
+.btn-icon {
+  width: 14px;
+  height: 14px;
+  color: #fbbf24;
+}
+
+/* Golden Fill (Fixed Layering) */
+.hero-btn-premium::before {
+  content: '';
+  position: absolute;
+  inset: 0; /* Matches parent perfectly */
+  background: linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24);
+  background-size: 200% auto;
+  opacity: 0;
+  z-index: -1; /* Sits behind text, inside the button */
+  transition: opacity 0.4s ease;
+}
+
+/* Hover States */
+.hero-btn-premium:hover {
+  border-color: #fbbf24;
+  color: #020617; /* Dark text for readability on gold */
+  box-shadow: 0 0 40px rgba(251, 191, 36, 0.3);
+}
+
+.hero-btn-premium:hover::before {
+  opacity: 1;
+  animation: shimmerMove 2s linear infinite;
+}
+
+.hero-btn-premium:hover .btn-icon-wrapper {
+  background: #020617;
+}
+
+.hero-btn-premium:hover .btn-icon {
+  color: #fbbf24;
+  transform: translateX(3px);
+}
+
+@keyframes shimmerMove {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* --- 5. SCROLL INDICATOR --- */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.mouse {
+  width: 24px;
+  height: 38px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  padding-top: 7px;
+}
+
+.wheel {
+  width: 3px;
+  height: 6px;
+  background: #fbbf24;
+  border-radius: 2px;
+  animation: scrollAnim 2s infinite;
+}
+
+@keyframes scrollAnim {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(14px); }
+}
+
+/* --- 6. MOBILE RESPONSIVENESS FIXES --- */
+@media (max-width: 768px) {
+  .hero-title {
+    /* Dramatic shrink for mobile to keep "Meets" on one line */
+    font-size: 3.2rem !important; 
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .outline-text {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+  }
+
+  .hero-subtitle {
+    letter-spacing: 0.2em; /* Prevents overflow */
+    font-size: 0.75rem;
+    margin-bottom: 15px;
+  }
+
+  .hero-text {
+    font-size: 0.95rem;
+    margin-bottom: 35px;
+  }
+
+  .hero-btn-premium {
+    padding: 16px 32px;
+    font-size: 0.75rem;
+  }
+}

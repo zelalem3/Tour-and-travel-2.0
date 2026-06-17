@@ -1,0 +1,268 @@
+/* ==================== DESTINATION ALBUM - LUXURY TRAVEL STYLE ==================== */
+.album-page-container {
+  background: radial-gradient(circle at top right, #0f172a 0%, #02040a 70%);
+  min-height: 100vh;
+  padding: 120px 6% 80px;
+  color: #f8fafc;
+  overflow-x: hidden;
+}
+
+.album-content {
+  max-width: 1680px;
+  margin: 0 auto;
+}
+
+/* Back Link */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #fbbf24;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  opacity: 0.85;
+}
+
+.back-link:hover {
+  opacity: 1;
+  color: #fcd34d;
+  transform: translateX(-10px);
+}
+
+/* Header */
+.album-header {
+  margin-bottom: 90px;
+  max-width: 1100px;
+}
+
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(251, 191, 36, 0.1);
+  color: #fbbf24;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  margin-bottom: 24px;
+}
+
+.album-location {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #94a3b8;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.album-title {
+  font-size: clamp(3.2rem, 7vw, 6rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -3.5px;
+  margin: 0 0 24px 0;
+}
+
+.album-description {
+  font-size: 1.35rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  max-width: 800px;
+  font-weight: 400;
+}
+
+.title-underline {
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(to right, #fbbf24, #f59e0b);
+  margin-top: 30px;
+  border-radius: 2px;
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+}
+
+/* Masonry Grid - Premium Layout */
+.masonry-grid {
+  columns: 2 520px;
+  column-gap: 45px;
+  width: 100%;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 45px;
+  animation: fadeUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) backwards;
+}
+
+.image-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0f172a;
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: zoom-in;
+}
+
+.image-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.image-card:hover {
+  transform: translateY(-18px) scale(1.015);
+  box-shadow: 0 50px 90px -20px rgba(251, 191, 36, 0.2);
+  border-color: rgba(251, 191, 36, 0.25);
+}
+
+.image-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Caption Overlay */
+.caption-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 70px 35px 35px;
+  background: linear-gradient(to top, rgba(3, 7, 18, 0.95) 30%, transparent 75%);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.image-card:hover .caption-overlay {
+  opacity: 1;
+}
+
+.caption-overlay p {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #f1f5f9;
+  line-height: 1.5;
+  font-weight: 400;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.9);
+}
+
+/* Loader & Error */
+.album-loader {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #020617;
+  color: #fbbf24;
+  gap: 28px;
+  font-size: 1.1rem;
+}
+
+.spinner {
+  animation: spin 1.3s linear infinite;
+}
+
+.error-state {
+  text-align: center;
+  padding: 200px 20px;
+  font-size: 1.8rem;
+  color: #64748b;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .masonry-grid {
+    columns: 2 420px;
+    column-gap: 35px;
+  }
+}
+
+@media (max-width: 768px) {
+  .album-page-container {
+    padding: 90px 5% 60px;
+  }
+  .masonry-grid {
+    columns: 1;
+    column-gap: 0;
+  }
+  .masonry-item {
+    margin-bottom: 30px;
+  }
+  .image-card {
+    border-radius: 12px;
+  }
+  .album-title {
+    font-size: 3.4rem;
+  }
+  .caption-overlay {
+    opacity: 1;
+    padding: 50px 25px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .album-page-container {
+    padding: 70px 4% 40px;
+  }
+}
+
+/* ... Keep your existing container, header, and card styles ... */
+
+/* REMOVE OR REPLACE .masonry-grid with this: */
+.my-masonry-grid {
+  display: flex;
+  margin-left: -45px; /* gutter size offset */
+  width: auto;
+}
+
+.my-masonry-grid_column {
+  padding-left: 45px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Style your items as usual */
+.masonry-item {
+  margin-bottom: 45px;
+  animation: fadeUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) backwards;
+}
+
+/* Adjust gutters for mobile */
+@media (max-width: 768px) {
+  .my-masonry-grid {
+    margin-left: 0;
+  }
+  .my-masonry-grid_column {
+    padding-left: 0;
+  }
+  .masonry-item {
+    margin-bottom: 30px;
+  }
+}
